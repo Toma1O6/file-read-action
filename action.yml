@@ -1,4 +1,4 @@
-name: File reader
+name: Simple file reader
 description: Reads file contents and stores it to action output
 author: Toma
 
