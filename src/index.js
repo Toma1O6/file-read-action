@@ -9,8 +9,7 @@ async function main() {
         const filePath = actions.getInput('file');
         const fileEncoding = actions.getInput('encoding');
 
-        const fileContentBuffer = await readFile(filePath, fileEncoding);
-        const fileContent = fileContentBuffer.toString(fileEncoding);
+        const fileContent = await readFile(filePath, fileEncoding);
 
         const content = postProcessFileContent(fileContent);
         actions.info(`Processed file content:\n${content}`);
@@ -27,6 +26,10 @@ function postProcessFileContent(content) {
 
 function applyLineLimit(content) {
     const lineLimit = parseInt(actions.getInput('max-lines'), 10);
+    if (isNaN(lineLimit)) {
+        actions.warning(`Line limit is not a number! Got ${lineLimit}, expected int`);
+        return content;
+    }
     if (lineLimit <= 0) {
         return content;
     }
@@ -35,11 +38,15 @@ function applyLineLimit(content) {
     if (lines.length <= lineLimit) {
         return content;
     }
-    return lines.slice(0, lineLimit).join('\n');
+    return lines.slice(0, lineLimit).join('\n').trimEnd();
 }
 
 function applyCharacterLimit(content) {
     const characterLimit = parseInt(actions.getInput('max-chars'), 10);
+    if (isNaN(characterLimit)) {
+        actions.warning(`Character limit is not a number! Got ${characterLimit}, expected int`);
+        return content;
+    }
     if (characterLimit <= 0 || content.length <= characterLimit) {
         return content;
     }
