@@ -1,0 +1,26 @@
+{
+  "name": "file-reader-action",
+  "version": "1.0.0",
+  "description": "Script for reading files and storing output within GitHub actions with line limits and so on",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --platform=node --outfile=dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Toma1O6/File-Reader-Action.git"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.0"
+  },
+  "keywords": [],
+  "author": "Toma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Toma1O6/File-Reader-Action/issues"
+  },
+  "homepage": "https://github.com/Toma1O6/File-Reader-Action#readme",
+  "devDependencies": {
+    "esbuild": "^0.25.5"
+  }
+}

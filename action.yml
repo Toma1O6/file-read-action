@@ -1,0 +1,31 @@
+name: File reader
+description: Reads file contents and stores it to action output
+author: Toma
+
+inputs:
+  file:
+    required: true
+    description: File path
+
+  encoding:
+    required: false
+    description: File encoding
+    default: 'utf-8'
+
+  max-lines:
+    required: false
+    description: Max amount of lines to be stored in output
+    default: '0'
+
+  max-chars:
+    required: false
+    description: Max amount of characters to be stored in output
+    default: '0'
+
+outputs:
+  content:
+    description: File contents
+
+runs:
+  using: node20
+  main: dist/index.js
