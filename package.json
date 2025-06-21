@@ -1,6 +1,6 @@
 {
   "name": "file-reader-action",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Script for reading files and storing output within GitHub actions with line limits and so on",
   "main": "index.js",
   "scripts": {
