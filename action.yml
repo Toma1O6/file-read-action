@@ -2,6 +2,10 @@ name: Simple file reader
 description: Reads file contents and stores it to action output
 author: Toma
 
+branding:
+  icon: align-justify
+  color: blue
+
 inputs:
   file:
     required: true
