@@ -24,7 +24,10 @@ Adding workflow step
 |-----------|---------------------------------------|
 | `content` | Processed file content after trimming |
 
-## Example usage in workflow
+## Examples
+[Production usage](https://github.com/T-T-Team/BlockyChef/blob/dev/.github/workflows/notify.yml#L17)
+
+Plain:
 ```yaml
 name: Read file contents
 on:
